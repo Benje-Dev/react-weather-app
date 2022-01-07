@@ -36,10 +36,10 @@ li:first-letter {
   text-transform: capitalize;
 }
 
-p {
+/* p {
   margin: 0;
   text-align: center;
-}
+} */
 
 .App {
   margin: 100px auto 120px auto;
@@ -65,13 +65,13 @@ p {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-.forecast-small {
+/* .forecast-small {
   border: solid 1px rgb(112, 107, 109);
 
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   margin: 10px 5px;
   padding: 10px 0px 10px 10px;
-}
+} */
 
 .btn {
   background: rgb(230, 62, 109);
@@ -126,17 +126,17 @@ p {
   margin-right: 25px;
 }
 
-.icon-forecast {
-  padding: 10px 6px 10px 8px;
-  /* font-size: 30px; */
-}
+/* .icon-forecast {
+  padding: 10px 6px 10px 8px; */
+/* font-size: 30px; */
+/* } */
 
-.forecast-temp-max {
+/* .forecast-temp-max {
   font-weight: bold;
-}
+} */
 
 .footer {
-  margin: 0 auto;
+  margin: -90px auto;
   width: 75%;
   color: black;
   text-align: center;
