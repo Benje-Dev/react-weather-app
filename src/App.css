@@ -44,7 +44,7 @@ p {
 .App {
   margin: 100px auto 120px auto;
   padding: 40px 30px;
-  width: 70%;
+  width: 75%;
   border-radius: 15px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
   display: block;
@@ -98,7 +98,7 @@ p {
 
 .acutal-weather {
   margin-left: 22px;
-  width: 535px;
+  width: 526px;
 }
 .active {
   color: rgba(112, 107, 109, 1);

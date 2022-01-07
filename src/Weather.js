@@ -70,7 +70,11 @@ export default function Weather() {
             </div>
 
             <div className="col-5">
-              <img src={weatherData.imgUrl} alt="weathe-icon" />
+              <img
+                src={weatherData.imgUrl}
+                alt="weathe-icon"
+                className="icon-actual"
+              />
             </div>
           </div>
         </div>
