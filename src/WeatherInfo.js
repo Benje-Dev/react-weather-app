@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -9,17 +10,12 @@ export default function WeatherInfo(props) {
         <div className="col-7 border-box acutal-weather">
           <div className="row justify-content-between">
             <div className="col-5">
-              <h2>
-                <span> {props.data.temperature}</span>
-                <a href="/" className="active">
-                  {" "}
-                  °C
-                </a>{" "}
-                |
-                <a href="/" className="passiv">
-                  °F
-                </a>
-              </h2>
+
+<WeatherTemperature celsius={props.data.temperature} />
+
+          
+
+
               <ul>
                 <li>
                   humidity: <span>{props.data.humidity}</span>%
