@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherInfo from "./WeatherInfo";
 
 import "./Weather.css";
 
@@ -7,7 +8,7 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
-    console.log(response.data);
+    console.log(new Date(response.data.dt * 1000));
 
     setWeatherData({
       ready: true,
@@ -16,7 +17,7 @@ export default function Weather(props) {
       wind: Math.round(response.data.wind.speed),
       description: response.data.weather[0].description,
       temperature: Math.round(response.data.main.temp),
-      date: "Wednesday 07:00",
+      date: new Date(response.data.dt * 1000),
       icon: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     });
   }
@@ -53,54 +54,12 @@ export default function Weather(props) {
           </div>
         </form>
 
-        <div className="row justify-content-between">
-          <div className="col-7 border-box acutal-weather">
-            <div className="row justify-content-between">
-              <div className="col-5">
-                <h2>
-                  <span> {weatherData.temperature}</span>
-                  <a href="/" className="active">
-                    {" "}
-                    °C
-                  </a>{" "}
-                  |
-                  <a href="/" className="passiv">
-                    °F
-                  </a>
-                </h2>
-                <ul>
-                  <li>
-                    humidity: <span>{weatherData.humidity}</span>%
-                  </li>
-                  <li>
-                    wind: <span>{weatherData.wind}</span>km/h
-                  </li>
-                </ul>
-              </div>
-
-              <div className="col-5">
-                <img
-                  src={weatherData.icon}
-                  alt="weathe-icon"
-                  className="icon-actual"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="col-4 border-box weather-location">
-            <h1>{weatherData.city}</h1>
-            <ul>
-              <li>{weatherData.date}</li>
-              <li>{weatherData.description}</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
     const apiKey = "15b6771cede26fdda2ef2045a9e7c815";
-    
+
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
