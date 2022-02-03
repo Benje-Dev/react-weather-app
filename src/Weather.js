@@ -6,9 +6,10 @@ import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log(new Date(response.data.dt * 1000));
+
 
     setWeatherData({
       ready: true,
@@ -18,14 +19,30 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       temperature: Math.round(response.data.main.temp),
       date: new Date(response.data.dt * 1000),
+
       icon: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
     });
+  }
+
+  function search() {
+    const apiKey = "15b6771cede26fdda2ef2045a9e7c815";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleChangeCity(event) {
+    setCity(event.target.value);
   }
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-7">
               <div className="mb-3">
@@ -35,6 +52,7 @@ export default function Weather(props) {
                   placeholder="enter your city"
                   autoFocus="on"
                   autoComplete="off"
+                  onChange={handleChangeCity}
                 />
               </div>
             </div>
@@ -58,11 +76,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    const apiKey = "15b6771cede26fdda2ef2045a9e7c815";
-
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
+    search()
     return "loading...";
   }
 }
