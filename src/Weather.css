@@ -5,9 +5,7 @@ h2 {
   font-weight: 700;
 }
 
-.Weather h3 {
-  font-size: 20px;
-}
+
 
 .Weather ul {
   padding: 0px;
@@ -20,11 +18,6 @@ h2 {
 .Weather li:first-letter {
   text-transform: capitalize;
 }
-
-/* p {
-  margin: 0;
-  text-align: center;
-} */
 
 
 
@@ -40,13 +33,7 @@ h2 {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-/* .forecast-small {
-  border: solid 1px rgb(112, 107, 109);
 
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  margin: 10px 5px;
-  padding: 10px 0px 10px 10px;
-} */
 
 .Weather .btn {
   background: rgb(230, 62, 109);
@@ -92,10 +79,8 @@ h2 {
   color: rgba(230, 62, 109, 0.9);
 }
 
-
 .Weather canvas {
-  margin-top: 5px;
-  
+margin-top: 7px;
 }
 
 .Weather .weather-location {
@@ -103,11 +88,5 @@ h2 {
   margin-right: 25px;
 }
 
-/* .icon-forecast {
-  padding: 10px 6px 10px 8px; */
-/* font-size: 30px; */
-/* } */
 
-/* .forecast-temp-max {
-  font-weight: bold;
-} */
+

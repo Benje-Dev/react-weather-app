@@ -1,0 +1,30 @@
+.WeatherForecast h3 {
+  font-size: 18px;
+  display: inline-block;
+  position: relative;
+  top: -25px;
+  padding: 0 5px 20px 0
+}
+
+.WeatherForecast p {
+  margin: 0;
+  text-align: center;
+}
+
+
+.WeatherForecast .forecast-small {
+  border: solid 1px rgb(112, 107, 109);
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 10px 5px;
+  padding: 10px 0px 10px 10px;
+}
+
+.WeatherForecast .icon-forecast {
+  padding: 10px 0px 10px 10px; 
+ font-size: 30px; 
+ }
+
+ .WeatherForecast .forecast-temp-max {
+  font-weight: bold;
+}
