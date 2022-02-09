@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className="container">
       <div className="App">
-        <Weather defaultCity="Sydney"/>
+        <Weather defaultCity="Berlin" />
       </div>
       <footer className="footer">
         <a
@@ -14,12 +14,10 @@ export default function App() {
           rel="noreferrer"
           className="footer-link"
         >
-        Open-source code {""}
+          Open-source code {""}
         </a>
-         by Jasmin Labidi
+        by Jasmin Labidi
       </footer>
     </div>
   );
 }
-
-
