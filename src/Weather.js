@@ -10,10 +10,11 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       ready: true,
       city: response.data.name,
-      humidity: response.data.main.humidity,
+      humidity: Math.round(response.data.main.humidity),
       wind: Math.round(response.data.wind.speed),
       description: response.data.weather[0].description,
       temperature: Math.round(response.data.main.temp),
@@ -27,6 +28,18 @@ export default function Weather(props) {
     const apiKey = "c44934c642c3483fcd8e0c09684b9fbc";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
+  }
+
+  function searchLocation(position) {
+    const apiKey = "c44934c642c3483fcd8e0c09684b9fbc";
+   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    
+  }
+
+  function getCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(searchLocation);
   }
 
   function handleSubmit(event) {
@@ -64,9 +77,12 @@ export default function Weather(props) {
               </button>
             </div>
             <div className="col-2">
-              <button type="submit" className="btn btn-primary btn-current">
-                current
-              </button>
+              <input
+                type="submit"
+                className="btn btn-primary btn-current"
+                value="current"
+                onClick={getCurrentLocation}
+              />
             </div>
           </div>
         </form>

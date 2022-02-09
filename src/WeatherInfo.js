@@ -10,11 +10,7 @@ export default function WeatherInfo(props) {
         <div className="col-7 border-box acutal-weather">
           <div className="row justify-content-between">
             <div className="col-5">
-
-<WeatherTemperature celsius={props.data.temperature} />
-
-          
-
+              <WeatherTemperature celsius={props.data.temperature} />
 
               <ul>
                 <li>
@@ -28,7 +24,6 @@ export default function WeatherInfo(props) {
 
             <div className="col-5">
               <WeatherIcon code={props.data.icon} />
-              
             </div>
           </div>
         </div>
